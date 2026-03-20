@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # 部署脚本 - 提交并推送更改到 GitHub Pages
+# 使用方法: ./deploy.sh
 
 echo "========================================"
 echo "开始部署到 GitHub Pages"
@@ -34,4 +35,4 @@ echo "网站将在几分钟后更新："
 echo "https://H2435566908-png.github.io/portfolio/"
 echo ""
 echo "查看部署状态："
-echo "  gh repo view --web"
+echo "  /Users/huangyuwei/bin/gh repo view --web"
