@@ -367,19 +367,16 @@ function ensureModalCentered() {
     const modalContent = modal.querySelector('.modal-content');
     if (!modalContent) return;
 
-    // 使用requestAnimationFrame确保在下一帧执行
-    requestAnimationFrame(() => {
-        // 确保抽屉不会超出视口
-        const viewportHeight = window.innerHeight;
-        const modalHeight = modalContent.offsetHeight;
+    // 确保抽屉不会超出视口
+    const viewportHeight = window.innerHeight;
+    const modalHeight = modalContent.offsetHeight;
 
-        // 如果抽屉高度超过视口，限制最大高度
-        if (modalHeight > viewportHeight * 0.9) {
-            modalContent.style.maxHeight = `${viewportHeight * 0.9}px`;
-        } else {
-            modalContent.style.maxHeight = '';
-        }
-    });
+    // 如果抽屉高度超过视口，限制最大高度
+    if (modalHeight > viewportHeight * 0.9) {
+        modalContent.style.maxHeight = `${viewportHeight * 0.9}px`;
+    } else {
+        modalContent.style.maxHeight = '';
+    }
 }
 
 // 窗口大小改变时重新调整模态框位置
@@ -736,7 +733,7 @@ function initGSAPAnimations() {
         }
     });
 
-    // 7. 模态框3D打开动画
+    // 7. 模态框打开动画（抽屉式）
     const modal = document.getElementById('workModal');
     if (modal) {
         const modalContent = modal.querySelector('.modal-content');
@@ -745,10 +742,15 @@ function initGSAPAnimations() {
             mutations.forEach((mutation) => {
                 if (mutation.attributeName === 'class') {
                     if (modal.classList.contains('active')) {
+                        // 使用视口高度的百分比，确保在手机上也能完全从底部滑入
+                        const viewportHeight = window.innerHeight;
+                        // 在手机上使用更大的位移，确保模态框完全从视口外滑入
+                        const slideDistance = viewportHeight * 0.8; // 使用视口高度的80%
+
                         gsap.fromTo(modalContent,
                             {
                                 opacity: 0,
-                                y: 100
+                                y: slideDistance
                             },
                             {
                                 opacity: 1,
