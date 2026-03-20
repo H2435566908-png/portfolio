@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="黄钰玮的个人作品集 - AI视频制作导演 · 剪辑师，专注于AI视频制作与导演剪辑，精通后期制作全流程">
+    <meta name="keywords" content="AI视频制作, 视频剪辑, 导演, 后期制作, PR剪辑, AE特效, 3D建模">
+    <meta name="author" content="黄钰玮">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="黄钰玮 - 个人作品集">
+    <meta property="og:description" content="AI视频制作导演 · 剪辑师，专注于AI视频制作与导演剪辑">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <title>黄钰玮 | AI视频制作导演 · 剪辑师 - 个人作品集</title>
+    <link rel="stylesheet" href="style.css?v=3.8">
+
+    <!-- GSAP Library with integrity -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+</head>
+<body>
+    <!-- 跳过导航链接 - 无障碍访问 -->
+    <a href="#main-content" class="skip-link">跳到主要内容</a>
+
+    <!-- 页面加载指示器 -->
+    <div class="page-loader" id="pageLoader" aria-hidden="true">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PORTFOLIO</a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">首页</a>
+                <a href="#works" class="nav-link">作品</a>
+                <a href="#about" class="nav-link">关于</a>
+            </div>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页英雄区域 -->
+    <main id="main-content">
+    <section id="home" class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+            <h1 id="hero-title" class="hero-name">黄钰玮</h1>
+            <p class="hero-title">AI视频制作导演 · 剪辑师</p>
+            <p class="hero-desc">
+                武汉东湖学院数字媒体专业在读，专注于AI视频制作与导演剪辑，同时精通后期制作全流程。
+                熟练运用AI工具进行视频制作，包括AI配音、AI生成画面、AI音乐等，并结合PR剪辑调色、AE特效合成等后期技术，打造完整的高质量视频作品。
+            </p>
+            <div class="hero-buttons">
+                <a href="#works" class="btn btn-primary">查看作品</a>
+                <a href="#about" class="btn btn-secondary">关于我</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品集区域 -->
+    <section id="works" class="works-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">作品集</h2>
+                <p class="section-subtitle">精选项目展示</p>
+            </div>
+            <div class="works-grid" id="worksGrid">
+                <!-- 作品卡片将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我区域 -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">关于我</h2>
+                <p class="section-subtitle">设计理念与专业背景</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        我是黄钰玮，武汉东湖学院数字媒体专业在读本科生。
+                        专注于AI视频制作与导演剪辑，同时精通后期制作全流程，包括剪辑、调色、特效合成等。
+                    </p>
+                    <p>
+                        熟练掌握AI配音、AI生成画面、AI音乐等技术，并结合PR剪辑调色、AE特效合成等后期制作技能，
+                        能够独立完成从创意策划到成片交付的全流程工作。善于将AI技术与传统后期制作完美结合，打造高质量的视频作品。
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <span class="info-label">教育背景</span>
+                            <span class="info-value">武汉东湖学院 · 数字媒体 · 本科</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">工作经历</span>
+                            <span class="info-value">湖北文皓教育 · 后期剪辑助手</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">在读时间</span>
+                            <span class="info-value">2022-2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-skills">
+                    <div class="skill-item">
+                        <span class="skill-name">AI视频制作与导演</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">PR 剪辑调色</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">AE 视频特效</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">3dmax 三维建模</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品详情模态框 -->
+    <div class="work-modal" id="workModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- 动态加载作品详情 -->
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+    <!-- 底部联系方式 -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p class="footer-name">黄钰玮</p>
+                <p class="footer-email">2435566908@qq.com</p>
+                <p class="footer-phone">18179395662</p>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">作品集</a>
+                <a href="#" class="footer-link">联系方式</a>
+            </div>
+            <p class="footer-copyright">© 2024 Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=3.0"></script>
+</body>
+</html>
