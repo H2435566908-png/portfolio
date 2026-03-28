@@ -124,6 +124,79 @@ document.addEventListener('DOMContentLoaded', function() {
 // 初始化页面
 function initPage() {
     renderWorksGrid();
+    initFilterButtons();
+}
+
+// ==================== 筛选功能 ====================
+function initFilterButtons() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新按钮状态
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // 获取筛选条件
+            const filter = this.dataset.filter;
+
+            // 筛选作品
+            filterWorks(filter);
+        });
+    });
+}
+
+function filterWorks(filter) {
+    const workCards = document.querySelectorAll('.work-card');
+
+    workCards.forEach(card => {
+        const workId = card.dataset.workId;
+        const work = worksData.find(w => w.id === workId);
+
+        if (!work) return;
+
+        // 检查作品是否匹配筛选条件
+        let shouldShow = false;
+
+        if (filter === 'all') {
+            shouldShow = true;
+        } else if (filter === 'ai' && (work.category.includes('AI') || work.category.includes('AI视频'))) {
+            shouldShow = true;
+        } else if (filter === 'video' && (work.category.includes('剪辑') || work.category.includes('视频') || work.category.includes('特效'))) {
+            shouldShow = true;
+        } else if (filter === '3d' && work.category.includes('3D')) {
+            shouldShow = true;
+        } else if (filter === '特效' && work.category.includes('特效')) {
+            shouldShow = true;
+        }
+
+        // 显示或隐藏卡片
+        if (shouldShow) {
+            card.style.display = '';
+            card.style.opacity = '0';
+
+            // 获取原始阶梯偏移
+            const originalOffset = card.style.getPropertyValue('--original-offset') || '0px';
+            card.style.transform = `translateY(${parseInt(originalOffset) + 20}px)`;
+
+            // 添加动画
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                card.style.opacity = '1';
+                card.style.transform = `translateY(${originalOffset})`;
+            }, 50);
+        } else {
+            card.style.opacity = '0';
+
+            // 获取原始阶梯偏移
+            const originalOffset = card.style.getPropertyValue('--original-offset') || '0px';
+            card.style.transform = `translateY(${parseInt(originalOffset) + 20}px)`;
+
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300);
+        }
+    });
 }
 
 // ==================== 作品集功能 ====================
@@ -133,7 +206,13 @@ function renderWorksGrid() {
 
     grid.innerHTML = '';
 
-    worksData.forEach((work) => {
+    // 阶梯式布局配置
+    const阶梯配置 = {
+        偏移量: [0, 40, 80, 20, 60, 100, 40, 80, 120], // 每行的垂直偏移
+        列数: 3
+    };
+
+    worksData.forEach((work, index) => {
         const card = document.createElement('div');
         card.className = 'work-card';
         card.dataset.workId = work.id;
@@ -157,22 +236,42 @@ function renderWorksGrid() {
             `;
         }
 
-        // 使用占位符和懒加载
+        // 计算阶梯式偏移
+        const阶梯偏移 = [0, 40, 80, 20, 60, 100, 40, 80, 120][index % 9];
+
+        // 应用阶梯样式
+        card.style.transform = `translateY(${阶梯偏移}px)`;
+        card.style.setProperty('--original-offset', `${阶梯偏移}px`);
+        card.style.marginBottom = '20px';
+
+        // 使用占位符和懒加载 - 解构主义样式
         card.innerHTML = `
-            <div class="work-card-image has-image"
-                 data-src="${work.image}"
-                 style="background-color: var(--color-gray-200);"
-                 role="img"
-                 aria-label="${work.title} 封面图片"></div>
+            <div class="work-card-visual">
+                <div class="work-card-image has-image"
+                     data-src="${work.image}"
+                     style="background-color: var(--color-surface-container);"
+                     role="img"
+                     aria-label="${work.title} 封面图片"></div>
+                <div class="work-card-number">${String(worksData.indexOf(work) + 1).padStart(2, '0')}</div>
+                <div class="work-card-decoration"></div>
+            </div>
             <div class="work-card-content">
-                <div class="work-card-category">${work.category}</div>
+                <div class="work-card-meta">
+                    <span class="work-card-category">${work.category}</span>
+                    <span class="work-card-year">${work.date}</span>
+                </div>
                 <h3 class="work-card-title">${work.title}</h3>
-                <p class="work-card-year">${work.date}</p>
+                <p class="work-card-desc">${work.intro.substring(0, 80)}...</p>
+                <div class="work-card-tags">
+                    ${work.tech.slice(0, 3).map(tag => `<span class="work-tag">${tag}</span>`).join('')}
+                </div>
             </div>
             ${imagesHtml}
-            <div class="work-card-expand" role="button" aria-expanded="false" aria-label="展开图片集">
-                <span class="expand-icon">+</span>
-                <span class="expand-text">查看图片</span>
+            <div class="work-card-overlay">
+                <button class="work-card-expand" role="button" aria-expanded="false" aria-label="查看作品详情">
+                    <span class="material-symbols-outlined">visibility</span>
+                    <span>查看作品</span>
+                </button>
             </div>
         `;
 
@@ -262,7 +361,7 @@ function loadImage(element) {
         element.removeAttribute('data-src');
     };
     img.onerror = function() {
-        element.style.backgroundColor = 'var(--color-gray-300)';
+        element.style.backgroundColor = 'var(--color-surface-container-high)';
     };
     img.src = src;
 }

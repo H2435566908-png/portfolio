@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html class="dark" lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="黄钰玮的个人作品集 - AI视频制作导演 · 剪辑师，专注于AI视频制作与导演剪辑，精通后期制作全流程">
     <meta name="keywords" content="AI视频制作, 视频剪辑, 导演, 后期制作, PR剪辑, AE特效, 3D建模">
     <meta name="author" content="黄钰玮">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#131313">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
@@ -16,13 +16,30 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <title>黄钰玮 | AI视频制作导演 · 剪辑师 - 个人作品集</title>
-    <link rel="stylesheet" href="style.css?v=3.8">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css?v=4.0">
 
     <!-- GSAP Library with integrity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+    <!-- Fallback for no JavaScript -->
+    <noscript>
+        <style>
+            body { opacity: 1 !important; }
+            .page-loader { display: none !important; }
+        </style>
+    </noscript>
 </head>
 <body>
     <!-- 跳过导航链接 - 无障碍访问 -->
@@ -36,14 +53,17 @@
     <!-- 导航栏 -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">PORTFOLIO</a>
+            <a href="index.html" class="nav-logo">CURATOR</a>
             <div class="nav-menu">
-                <a href="#home" class="nav-link active">首页</a>
-                <a href="#works" class="nav-link">作品</a>
-                <a href="#about" class="nav-link">关于</a>
+                <a href="#home" class="nav-link active">作品</a>
+                <a href="#works" class="nav-link">关于</a>
+                <a href="#about" class="nav-link">联系</a>
             </div>
             <div class="nav-actions">
-                <button class="lang-toggle" id="langToggle">EN</button>
+                <button class="resume-btn">
+                    <span class="material-symbols-outlined">description</span>
+                    简历
+                </button>
             </div>
         </div>
     </nav>
@@ -51,81 +71,214 @@
     <!-- 首页英雄区域 -->
     <main id="main-content">
     <section id="home" class="hero" aria-labelledby="hero-title">
+        <!-- 抽象背景 -->
+        <div class="hero-background">
+            <div class="hero-gradient-overlay"></div>
+            <div class="hero-abstract-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+
         <div class="hero-content">
-            <h1 id="hero-title" class="hero-name">黄钰玮</h1>
-            <p class="hero-title">AI视频制作导演 · 剪辑师</p>
+            <span class="hero-label">数字媒体艺术家</span>
+            <h1 id="hero-title" class="hero-name">
+                创意 <span class="text-gradient">探索者</span>
+            </h1>
             <p class="hero-desc">
-                武汉东湖学院数字媒体专业在读，专注于AI视频制作与导演剪辑，同时精通后期制作全流程。
-                熟练运用AI工具进行视频制作，包括AI配音、AI生成画面、AI音乐等，并结合PR剪辑调色、AE特效合成等后期技术，打造完整的高质量视频作品。
+                在电影叙事与技术精准的交汇点，打造高保真数字体验。
+                专注于AI视频制作与导演剪辑，精通后期制作全流程，善于将AI技术与传统后期制作完美结合。
             </p>
             <div class="hero-buttons">
-                <a href="#works" class="btn btn-primary">查看作品</a>
-                <a href="#about" class="btn btn-secondary">关于我</a>
+                <a href="#works" class="btn btn-primary">
+                    探索我的作品
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
             </div>
+        </div>
+
+        <!-- 滚动指示器 -->
+        <div class="scroll-indicator">
+            <span class="material-symbols-outlined">expand_more</span>
         </div>
     </section>
 
-    <!-- 作品集区域 -->
+    <!-- 作品集区域 - 解构主义布局 -->
     <section id="works" class="works-section">
         <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">作品集</h2>
-                <p class="section-subtitle">精选项目展示</p>
+            <!-- 解构主义头部 -->
+            <div class="works-header-deconstructed">
+                <div class="header-visual">
+                    <div class="header-shape"></div>
+                    <div class="header-number">01</div>
+                </div>
+                <div class="header-content">
+                    <span class="header-tag">精选作品</span>
+                    <h2 class="header-title">数字实验与商业项目的精选集合</h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="header-description">
+                    <p>2023-2024年期间完成的代表性作品，涵盖AI视频制作、剪辑调色、3D建模与特效合成等多个领域。</p>
+                </div>
             </div>
-            <div class="works-grid" id="worksGrid">
+
+            <!-- 解构主义筛选器 -->
+            <div class="filter-deconstructed">
+                <div class="filter-visual">
+                    <div class="filter-indicator"></div>
+                </div>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">
+                        <span class="filter-icon">◈</span>
+                        <span>全部作品</span>
+                    </button>
+                    <button class="filter-btn" data-filter="ai">
+                        <span class="filter-icon">🤖</span>
+                        <span>AI视频</span>
+                    </button>
+                    <button class="filter-btn" data-filter="video">
+                        <span class="filter-icon">🎬</span>
+                        <span>视频剪辑</span>
+                    </button>
+                    <button class="filter-btn" data-filter="3d">
+                        <span class="filter-icon">🎨</span>
+                        <span>3D建模</span>
+                    </button>
+                    <button class="filter-btn" data-filter="特效">
+                        <span class="filter-icon">✨</span>
+                        <span>特效制作</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 解构主义作品网格 -->
+            <div class="works-deconstructed" id="worksGrid">
                 <!-- 作品卡片将通过JavaScript动态生成 -->
+            </div>
+
+            <!-- 加载更多 - 解构风格 -->
+            <div class="works-cta-deconstructed">
+                <button class="load-more-deconstructed">
+                    <span class="load-more-text">探索更多作品</span>
+                    <span class="load-more-icon">
+                        <span class="material-symbols-outlined">unfold_more</span>
+                    </span>
+                </button>
+                <div class="cta-decoration"></div>
             </div>
         </div>
     </section>
 
-    <!-- 关于我区域 -->
+    <!-- 关于我区域 - 时尚解构布局 -->
     <section id="about" class="about-section">
         <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">关于我</h2>
-                <p class="section-subtitle">设计理念与专业背景</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        我是黄钰玮，武汉东湖学院数字媒体专业在读本科生。
-                        专注于AI视频制作与导演剪辑，同时精通后期制作全流程，包括剪辑、调色、特效合成等。
-                    </p>
-                    <p>
-                        熟练掌握AI配音、AI生成画面、AI音乐等技术，并结合PR剪辑调色、AE特效合成等后期制作技能，
-                        能够独立完成从创意策划到成片交付的全流程工作。善于将AI技术与传统后期制作完美结合，打造高质量的视频作品。
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <span class="info-label">教育背景</span>
-                            <span class="info-value">武汉东湖学院 · 数字媒体 · 本科</span>
+            <!-- 时尚解构布局 -->
+            <div class="about-fashion">
+                <!-- 左侧：大图展示区 -->
+                <div class="fashion-visual">
+                    <div class="visual-wrapper">
+                        <div class="visual-image">
+                            <div class="profile-placeholder">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">工作经历</span>
-                            <span class="info-value">湖北文皓教育 · 后期剪辑助手</span>
+                        <!-- 装饰性几何元素 -->
+                        <div class="geo-shape shape-1"></div>
+                        <div class="geo-shape shape-2"></div>
+                        <div class="geo-shape shape-3"></div>
+                        <!-- 悬浮标签 -->
+                        <div class="floating-tag tag-1">
+                            <span>AI视频制作</span>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">在读时间</span>
-                            <span class="info-value">2022-2026</span>
+                        <div class="floating-tag tag-2">
+                            <span>导演剪辑</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-skills">
-                    <div class="skill-item">
-                        <span class="skill-name">AI视频制作与导演</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+
+                <!-- 右侧：内容信息区 -->
+                <div class="fashion-content">
+                    <!-- 标题区域 -->
+                    <div class="content-header">
+                        <span class="section-tag">关于我</span>
+                        <h2 class="content-title">
+                            架起<span class="text-gradient">像素</span>与<span class="text-gradient-secondary">动效</span>的桥梁
+                        </h2>
+                        <div class="title-decoration"></div>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">PR 剪辑调色</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+
+                    <!-- 描述区域 -->
+                    <div class="content-description">
+                        <p>
+                            我是一名数字策展人和多学科设计师，专注于高端编辑美学与技术精准的结合。
+                            我的工作致力于创造在架构上稳健且富有艺术流动性的沉浸式数字环境。
+                        </p>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">AE 视频特效</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+
+                    <!-- 技能展示区 -->
+                    <div class="content-skills">
+                        <div class="skill-card">
+                            <div class="skill-card-header">
+                                <span class="skill-card-icon">🎨</span>
+                                <h4>设计工具</h4>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">After Effects</span>
+                                <span class="skill-tag">Blender</span>
+                                <span class="skill-tag">Figma</span>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card-header">
+                                <span class="skill-card-icon">✂️</span>
+                                <h4>剪辑技术</h4>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">PR剪辑</span>
+                                <span class="skill-tag">调色</span>
+                                <span class="skill-tag">特效合成</span>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card-header">
+                                <span class="skill-card-icon">🤖</span>
+                                <h4>AI应用</h4>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">AI视频</span>
+                                <span class="skill-tag">AI配音</span>
+                                <span class="skill-tag">AI生成</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">3dmax 三维建模</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+
+                    <!-- 联系信息区域 -->
+                    <div class="content-contact">
+                        <div class="contact-item">
+                            <span class="material-symbols-outlined">location_on</span>
+                            <span>远程 / 武汉</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="material-symbols-outlined">mail</span>
+                            <span>2435566908@qq.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="material-symbols-outlined">phone</span>
+                            <span>18179395662</span>
+                        </div>
+                    </div>
+
+                    <!-- 行动按钮 -->
+                    <div class="content-actions">
+                        <a href="#" class="action-btn primary">
+                            <span>下载简历</span>
+                            <span class="material-symbols-outlined">download</span>
+                        </a>
+                        <a href="mailto:2435566908@qq.com" class="action-btn secondary">
+                            <span>联系我</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -136,11 +289,21 @@
     <div class="work-modal" id="workModal">
         <div class="modal-overlay" id="modalOverlay"></div>
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-close" id="modalClose">
+                <span class="material-symbols-outlined">close</span>
+            </button>
             <div class="modal-body" id="modalBody">
                 <!-- 动态加载作品详情 -->
             </div>
         </div>
+    </div>
+
+    <!-- 浮动联系按钮 -->
+    <div class="fab-contact">
+        <button class="fab-btn">
+            <span class="material-symbols-outlined">mail</span>
+        </button>
+        <span class="fab-tooltip">联系我们</span>
     </div>
 
     </main>
@@ -148,16 +311,21 @@
     <!-- 底部联系方式 -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
-            <div class="footer-info">
-                <p class="footer-name">黄钰玮</p>
-                <p class="footer-email">2435566908@qq.com</p>
-                <p class="footer-phone">18179395662</p>
+            <div class="footer-brand">
+                <div class="footer-logo">CURATOR</div>
+                <p class="footer-tagline">专为高端编辑体验而打造</p>
             </div>
             <div class="footer-links">
-                <a href="#" class="footer-link">作品集</a>
-                <a href="#" class="footer-link">联系方式</a>
+                <a href="#" class="footer-link">LinkedIn</a>
+                <a href="#" class="footer-link">Dribbble</a>
+                <a href="#" class="footer-link">Instagram</a>
             </div>
-            <p class="footer-copyright">© 2024 Portfolio. All rights reserved.</p>
+            <div class="footer-contact">
+                <a href="mailto:2435566908@qq.com" class="footer-email-link">
+                    联系我：2435566908@qq.com
+                </a>
+            </div>
+            <p class="footer-copyright">© 2024 黄钰玮. 专为高端编辑体验而打造。</p>
         </div>
     </footer>
 
