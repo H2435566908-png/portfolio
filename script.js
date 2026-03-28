@@ -206,12 +206,6 @@ function renderWorksGrid() {
 
     grid.innerHTML = '';
 
-    // 阶梯式布局配置
-    const阶梯配置 = {
-        偏移量: [0, 40, 80, 20, 60, 100, 40, 80, 120], // 每行的垂直偏移
-        列数: 3
-    };
-
     worksData.forEach((work, index) => {
         const card = document.createElement('div');
         card.className = 'work-card';
@@ -237,11 +231,11 @@ function renderWorksGrid() {
         }
 
         // 计算阶梯式偏移
-        const阶梯偏移 = [0, 40, 80, 20, 60, 100, 40, 80, 120][index % 9];
+        const stepOffset = [0, 40, 80, 20, 60, 100, 40, 80, 120][index % 9];
 
         // 应用阶梯样式
-        card.style.transform = `translateY(${阶梯偏移}px)`;
-        card.style.setProperty('--original-offset', `${阶梯偏移}px`);
+        card.style.transform = `translateY(${stepOffset}px)`;
+        card.style.setProperty('--original-offset', `${stepOffset}px`);
         card.style.marginBottom = '20px';
 
         // 使用占位符和懒加载 - 解构主义样式
